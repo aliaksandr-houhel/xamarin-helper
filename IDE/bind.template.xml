@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>bind</Shortcut>
+      <_Description>Template for bindable property</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="type" isIdentifier="true">
+        <Default>string</Default>
+      </Variable>
+      <Variable name="name" isIdentifier="true">
+        <Default>Name</Default>
+      </Variable>
+      <Variable name="container" isEditable="false" isIdentifier="true">
+        <Default>notset</Default>
+        <Function>GetCurrentClassName()</Function>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[public static readonly BindableProperty $name$Property = BindableProperty.Create(nameof($name$), typeof($type$), typeof($container$), default($type$));
+public $type$ $name$
+{
+    get => ($type$)GetValue($name$Property);
+    set => SetValue($name$Property, value);
+}
+]]></Code>
+  </CodeTemplate>
+</CodeTemplates>
